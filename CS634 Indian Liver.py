@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[562]:
+# In[666]:
 
 
 import pandas as pd
@@ -13,13 +13,13 @@ from sklearn.preprocessing import Imputer
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 
 
-# In[563]:
+# In[667]:
 
 
 dataset = pd.read_csv("/Users/karansingh/Documents/CS505 Random Forests/indian_liver_patient.csv")
 
 
-# In[564]:
+# In[668]:
 
 
 mod_dataset = dataset
@@ -31,42 +31,54 @@ mod_dataset['Dataset'] = mod_dataset['Dataset'].map({int(1): int(1), int(2): int
 mod_dataset.isnull().any()
 
 
-# In[565]:
+# In[669]:
 
 
 mod_dataset.head()
-mod_dataset = mod_dataset.dropna()
+
+mod_dataset.replace(r'\s+', np.nan, regex=True)
+#mod_dataset = mod_dataset.dropna()
 
 
-# In[566]:
+# In[670]:
 
 
 # Prepare Data For Training
 X = mod_dataset.iloc[:, 0:10].values
+
 imp = Imputer(missing_values=np.nan, strategy='mean')
+
 imp.fit(X)
-imp.transform(X)
+
+X = imp.transform(X)
 
 
-# In[567]:
+# In[671]:
+
+
+print(X[209,:])
+X
+
+
+# In[672]:
 
 
 Y = mod_dataset.iloc[:,10].values
 
 
-# In[568]:
+# In[673]:
 
 
 # The following code divides data into training and testing sets
 
 
-# In[569]:
+# In[674]:
 
 
 X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size = 0.33, random_state =40)
 
 
-# In[570]:
+# In[675]:
 
 
 #Feature Scaling
@@ -75,7 +87,7 @@ X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
 
-# In[571]:
+# In[676]:
 
 
 # Training the algorithim
@@ -84,7 +96,7 @@ classifier.fit(X_train, y_train)
 y_pred = classifier.predict(X_test)
 
 
-# In[572]:
+# In[677]:
 
 
 print(confusion_matrix(y_test,y_pred))
