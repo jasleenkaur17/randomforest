@@ -1,0 +1,56 @@
+Random Forests Application on Indian Liver Disease Dataset
+
+Team Member: Karan Singh
+
+Instructions:
+
+1) Go into line 36 in RandomForest.py and change file path to location of your Indian Liver Disease dataset.
+	
+	dataset = pd.read_csv("/Users/karansingh/Documents/CS505 Random Forests/indian_liver_patient.csv")
+
+2) Run the RandomForest.py Python Script in your terminal or command line
+
+3) Plots will be generated in this order OOB Error Rate, Feature Importance, and ROC Curve. 
+   AFTER VIEWING YOU MUST CLOSE EACH ONE FOR THE SCRIPT TO CONTINUE.
+
+4) At the end of the command line you will see print results shown below:
+
+Cross validation run 0:  0.615
+Cross validation run 1:  0.590
+Cross validation run 2:  0.718
+Cross validation run 3:  0.692
+Cross validation run 4:  0.692
+Cross validation run 5:  0.718
+Cross validation run 6:  0.667
+Cross validation run 7:  0.641
+Cross validation run 8:  0.821
+Cross validation run 9:  0.718
+Accuracy:  0.687 (+/-  0.031)
+ 
+Best Parameters using grid search: 
+ {'bootstrap': False, 'criterion': 'gini', 'max_depth': 4, 'max_features': 'auto'}
+ 
+OOB Error rate for 300 trees is: 0.32051
+ 
+The Confusion Matrix
+[[  7  45]
+ [ 11 130]]
+ 
+Here is our mean accuracy on the test set:
+ 0.710
+ 
+The test error rate for our model is:
+  0.2902
+ 
+Classification Report for Random Forest:
+             precision    recall  f1-score   support
+
+     Benign       0.13      0.39      0.20        18
+  Malignant       0.92      0.74      0.82       175
+
+avg / total       0.85      0.71      0.76       193
+
+0.7098445595854922
+
+
+
