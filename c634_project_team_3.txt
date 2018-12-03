@@ -1,6 +1,8 @@
 Random Forests Application on Indian Liver Disease Dataset
 
 Team Member: Karan Singh
+	     Jasleen Kaur
+	     Tanu Gera
 
 Instructions:
 
